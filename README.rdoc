@@ -1,0 +1,48 @@
+= Janitor
+
+A quick and dirtry Quartz.Net based job runner infrastructure to use when you need a simple cron-like job runner under .Net with your own business logic and control.
+
+== Usage
+You can run Janitor.Core either as console or Windows service.
+
+XMLish declaration:
+
+  <job>
+    <job-detail>
+      <name>BirthDayJob</name>
+      <group>jobGroup2</group>
+      <description>jobDesciption2</description>
+      <job-type>Jobs.HelloWorldJob, jobs</job-type>
+    </job-detail>
+
+    <trigger>
+      <cron>
+        <name>EveryDayAt0100</name>
+        <group>EveryDayAt0100</group>
+        <job-name>BirthDayJob</job-name>
+        <job-group>jobGroup2</job-group>
+        <cron-expression>0 * * * * ? </cron-expression>
+      </cron>
+    </trigger>
+  </job>
+
+Look in src\Janitor.Core\conf for more.
+
+
+== Note on Patches/Pull Requests
+ 
+* Fork the project.
+* Make your feature addition or bug fix.
+* Add tests for it. This is important so I don't break it in a
+  future version unintentionally.
+* Commit, do not mess with rakefile, version, or history.
+  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
+* Send me a pull request. Bonus points for topic branches.
+
+== Contributors
+
+* Dotan Nahum (http://github.com/jondot)
+
+== Copyright
+
+Copyright (c) 2010 Dotan Nahum (jondot). See LICENSE for details.
